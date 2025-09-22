@@ -17,8 +17,9 @@ services:
 
   cloudflared:
     image: cloudflare/cloudflared:latest
-    container_name: plex_cloudflared
-    command: tunnel --no-autoupdate run ${TUNNEL_NAME}
+    user: "1000:1000"
+    container_name: ${TUNNEL_NAME}_cloudflared
+    command: tunnel --no-autoupdate --config /etc/cloudflared/${CONFIG_FILE} run ${TUNNEL_NAME}
     volumes:
       - /home/asafe-borges/.cloudflared:/etc/cloudflared
     restart: unless-stopped
