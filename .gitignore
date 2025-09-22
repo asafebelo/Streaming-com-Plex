@@ -1,0 +1,10 @@
+# Ignore variáveis de ambiente
+.env
+
+# Ignore diretórios do plex
+/config
+/cache
+
+# Ignore arquivos temporários
+*.log
+*.tmp
