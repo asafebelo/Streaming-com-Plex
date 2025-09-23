@@ -52,6 +52,10 @@ up:
 	echo "Verificando logs do Cloudflared..."; \
 	docker logs -f $$(docker compose ps -q cloudflared)
 
+pull:
+	@echo "Atualizando $$TUNNEL_NAME..."
+	docker compose pull $$TUNNEL_NAME; \
+
 down:
 	@echo "Derrubando container $$TUNNEL_NAME..."
 	docker compose down
